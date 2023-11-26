@@ -5,6 +5,7 @@ import com.example.BookMyShow.Models.Theater;
 import com.example.BookMyShow.Models.TheaterSeat;
 import com.example.BookMyShow.Repository.TheaterRepository;
 import com.example.BookMyShow.RequestDtos.AddTheaterRequest;
+import com.example.BookMyShow.Transformers.TheaterTransformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +22,7 @@ public class TheaterService {
 
         //1. create theater entity
 
-        Theater theater = Theater.builder().name(addTheaterRequest.getName())
-                .city(addTheaterRequest.getCity())
-                .address(addTheaterRequest.getAddress())
-                .build();
-
+        Theater theater = TheaterTransformers.convertAddTheaterRequestToEntity(addTheaterRequest);
         //create the theater seat entity
 
         createTheaterSeats(theater,addTheaterRequest);

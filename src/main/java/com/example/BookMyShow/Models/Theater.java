@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "theater")
+@Table
 @Getter
 @Setter
 @AllArgsConstructor
@@ -30,6 +30,9 @@ public class Theater {
 
     @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
     private List<TheaterSeat> theaterSeatList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "theater",cascade = CascadeType.ALL)
+    private List<Show> showList = new ArrayList<>();
 
 
 }

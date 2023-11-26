@@ -3,8 +3,11 @@ package com.example.BookMyShow.Models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "user")
+@Table
 @Getter
 @Setter
 @Builder
@@ -26,6 +29,8 @@ public class User {
 
     private Integer age;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Ticket> ticketList = new ArrayList<>();
 
 
 }

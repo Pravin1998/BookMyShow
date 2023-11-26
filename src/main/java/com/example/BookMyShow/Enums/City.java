@@ -3,7 +3,7 @@ package com.example.BookMyShow.Enums;
 public enum City {
 
     DELHI,
-    BANGALORE,
+    BENGALURU,
     HYDERABAD,
     CHENNAI,
     AHMEDABAD
